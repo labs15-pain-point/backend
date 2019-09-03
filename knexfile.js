@@ -1,12 +1,13 @@
 // Update with your config settings.
+require('dotenv').config()
 
 module.exports = {
 
   development: {
     client: 'pg',
-    user: 'dnlnyzsx',
-    password: 'x-pjmCmrCxKQKOQV3sRAA_HazvQPDRtX',
-    connection:  'postgres://dnlnyzsx:x-pjmCmrCxKQKOQV3sRAA_HazvQPDRtX@salt.db.elephantsql.com:5432/dnlnyzsx',
+    user: process.env.USENAME,
+    password: process.env.PASSWORD,
+    connection: process.env.URL,
     migrations: {
       directory: './data/migrations'
     },

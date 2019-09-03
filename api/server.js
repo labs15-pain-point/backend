@@ -5,6 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 // Import routes
+const companyRouter = require('../companies/companiesRouter')
 
 // Connect the server with express
 
@@ -17,6 +18,8 @@ server.use(cors())
 server.use(express.json())
 
 // Connect server with routes
+
+server.use('/api/companies', companyRouter)
 
 // Test to see if server is running
 
