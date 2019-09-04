@@ -6,6 +6,7 @@ const helmet = require('helmet')
 
 // Import routes
 const companyRouter = require('../companies/companiesRouter')
+const randomRouter = require('../random/randomRouter')
 
 // Connect the server with express
 
@@ -20,6 +21,7 @@ server.use(express.json())
 // Connect server with routes
 
 server.use('/api/companies', companyRouter)
+server.use('/api/random', randomRouter)
 
 // Test to see if server is running
 
