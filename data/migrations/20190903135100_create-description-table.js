@@ -13,7 +13,7 @@ exports.up = function(knex) {
 
     tbl.integer('downvotes')
 
-    tbl.integer('bayesrating')
+    tbl.float('bayesrating')
 
     tbl.float('word_frequency')
 

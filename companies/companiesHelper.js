@@ -3,7 +3,9 @@ const db = require('../data/dbConfig')
 module.exports = {
     findAll,
     findById,
-    findRandom
+    findRandom,
+    add,
+    remove
 }
 
 function findAll() {
@@ -23,4 +25,13 @@ function findRandom() {
     }
     const id = randomNumber(0,3302)
     return db('companies').where({ id }).first()
+}
+
+async function add(company) {
+    const [id] = await db('companies').insert(company)
+    return findById(id)
+}
+
+function remove(id) {
+    return db('companies').where({ id }).del()
 }
