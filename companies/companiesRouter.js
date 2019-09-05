@@ -42,7 +42,7 @@ router.put('/:id/upvote', async (req, res) => {
             let companyUpvotes = ogCompany.upvotes
             companyRating = companyRating + 1
             companyUpvotes = companyUpvotes + 1
-            const bay = ((companyUpvotes + 5) / (companyUpvotes + 5 + ogCompany.downvotes + 5))
+            const bay = ((companyUpvotes + 6) / (companyUpvotes + 6 + ogCompany.downvotes + 4))
             const updatedCompany = await db('companies').update({rating: companyRating, upvotes: companyUpvotes, bayesrating: bay}).where({ id })
             const response = await db('companies').where({ id }).first()
             return res.status(200).json(response)
@@ -63,7 +63,7 @@ router.put('/:id/downvote', async (req, res) => {
             let companyDownvotes = ogCompany.downvotes
             companyRating = companyRating - 1
             companyDownvotes = companyDownvotes + 1
-            const bay = ((ogCompany.upvotes + 5) / (ogCompany.upvotes + 5 + companyDownvotes + 5))
+            const bay = ((ogCompany.upvotes + 6) / (ogCompany.upvotes + 6 + companyDownvotes + 4))
             const updatedCompany = await db('companies').update({rating: companyRating, downvotes: companyDownvotes, bayesrating: bay}).where({ id })
             const response = await db('companies').where({ id }).first()
             return res.status(200).json(response)
