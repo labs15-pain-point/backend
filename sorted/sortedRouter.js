@@ -18,6 +18,19 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/all', async (req, res) => {
+    try {
+        const companyList = await Companies.findAll()
+        companyList.sort((a, b) => { 
+            return b.bayesrating - a.bayesrating
+        })
+        const response = companyList 
+        return res.status(200).json(response)
+    } catch(error) {
+        return res.status(500).json(error)
+    }
+})
+
 
 
 module.exports = router
