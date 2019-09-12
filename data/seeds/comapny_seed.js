@@ -1,4 +1,5 @@
 const companies = require('../companies.js')
+const smallCompanies = require('../small_company')
 
 
 
@@ -8,6 +9,6 @@ exports.seed = function(knex) {
   return knex('companies').truncate()
     .then(function () {
       // Inserts seed entries
-      return knex('companies').insert(companies);
+      return knex('companies').insert(smallCompanies);
     });
 };

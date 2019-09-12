@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         return hello
     }
 
-    const example = randomNumber(0,3302)
+    const example = randomNumber(0,100)
 
     
     try {
